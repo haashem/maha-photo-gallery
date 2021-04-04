@@ -27,7 +27,12 @@ extension LocalGallery: PhotoLoader {
     public typealias LoadResult = PhotoLoader.Result
     public func load(completion: @escaping (LoadResult) -> Void) {
         store.retrieve { result in
-            
+            switch result {
+            case let .failure(error):
+                completion(.failure(error))
+                
+            default: break
+            }
         }
     }
     
@@ -40,3 +45,8 @@ extension Photo {
     }
 }
 
+private extension Array where Element == LocalPhoto {
+    func toModels() -> [Photo] {
+        return map{Photo(name: $0.name, date: $0.date, image: $0.image)}
+    }
+}

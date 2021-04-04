@@ -18,6 +18,7 @@ class GalleryStoreSpy: GalleryStore {
     private(set) var receivedMessages = [ReceivedMessage]()
     
     private var insertionsCompletions = [InsertionCompletion]()
+    private var retreivalCompletions = [RetrievalCompletion]()
     
     func insert(_ photo: LocalPhoto, completion: @escaping InsertionCompletion) {
         insertionsCompletions.append(completion)
@@ -33,7 +34,12 @@ class GalleryStoreSpy: GalleryStore {
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
+        retreivalCompletions.append(completion)
         receivedMessages.append(ReceivedMessage.retrieve)
+    }
+    
+    func completeRetrieval(with error: NSError, at index: Int = 0) {
+        retreivalCompletions[index](.failure(error))
     }
     
 }
