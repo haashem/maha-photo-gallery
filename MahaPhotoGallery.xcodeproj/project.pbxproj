@@ -28,6 +28,7 @@
 		94CBC6B32619F7F400773D5E /* LocalGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC6B22619F7F400773D5E /* LocalGallery.swift */; };
 		94CBC6B72619F88B00773D5E /* GalleryStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC6B62619F88B00773D5E /* GalleryStoreSpy.swift */; };
 		94CBC6BB2619F91900773D5E /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC6BA2619F91900773D5E /* XCTestCase+MemoryLeakTracking.swift */; };
+		94CBC6BF261A037100773D5E /* LoadFromCacheUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC6BE261A037100773D5E /* LoadFromCacheUseCaseTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		94CBC6B22619F7F400773D5E /* LocalGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGallery.swift; sourceTree = "<group>"; };
 		94CBC6B62619F88B00773D5E /* GalleryStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryStoreSpy.swift; sourceTree = "<group>"; };
 		94CBC6BA2619F91900773D5E /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		94CBC6BE261A037100773D5E /* LoadFromCacheUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFromCacheUseCaseTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				94CBC63D2619D40400773D5E /* GalleryStoreSpecs */,
 				9420DEEC2619C33C00B7C8FD /* CoreDataGalleryStoreTests.swift */,
 				94CBC6AC2619F7CC00773D5E /* CachePhotoUseCaseTests.swift */,
+				94CBC6BE261A037100773D5E /* LoadFromCacheUseCaseTest.swift */,
 				9420DEEE2619C33C00B7C8FD /* Info.plist */,
 			);
 			path = PhotoGalleryCacheTests;
@@ -401,6 +404,7 @@
 				94CBC6B72619F88B00773D5E /* GalleryStoreSpy.swift in Sources */,
 				94CBC6622619DCE400773D5E /* XCTestCase+GalleryStoreSpecs.swift in Sources */,
 				9420DEED2619C33C00B7C8FD /* CoreDataGalleryStoreTests.swift in Sources */,
+				94CBC6BF261A037100773D5E /* LoadFromCacheUseCaseTest.swift in Sources */,
 				94CBC6AD2619F7CC00773D5E /* CachePhotoUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
