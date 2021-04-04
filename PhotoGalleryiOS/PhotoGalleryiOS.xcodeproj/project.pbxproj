@@ -14,6 +14,10 @@
 		94CBC7D3261A1FB100773D5E /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC7D2261A1FB100773D5E /* GridLayout.swift */; };
 		94CBC7D7261A1FC800773D5E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC7D6261A1FC800773D5E /* PhotoCell.swift */; };
 		94CBC7DC261A213000773D5E /* GalleryUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC7DB261A213000773D5E /* GalleryUIComposer.swift */; };
+		94CBC7FC261A228700773D5E /* PhotoGalleryCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC7FB261A228700773D5E /* PhotoGalleryCache.framework */; };
+		94CBC7FD261A228700773D5E /* PhotoGalleryCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC7FB261A228700773D5E /* PhotoGalleryCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94CBC801261A228A00773D5E /* PhotoGalleryFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC800261A228A00773D5E /* PhotoGalleryFeature.framework */; };
+		94CBC802261A228A00773D5E /* PhotoGalleryFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC800261A228A00773D5E /* PhotoGalleryFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,21 @@
 			remoteInfo = PhotoGalleryiOS;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94CBC7FE261A228800773D5E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94CBC7FD261A228700773D5E /* PhotoGalleryCache.framework in Embed Frameworks */,
+				94CBC802261A228A00773D5E /* PhotoGalleryFeature.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		94CBC751261A137C00773D5E /* PhotoGalleryiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoGalleryiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +60,8 @@
 		94CBC7E4261A219400773D5E /* PhotoGalleryFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CBC7EF261A21DF00773D5E /* PhotoGalleryFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CBC7F5261A225D00773D5E /* PhotoGalleryCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CBC7FB261A228700773D5E /* PhotoGalleryCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CBC800261A228A00773D5E /* PhotoGalleryFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CBC7FC261A228700773D5E /* PhotoGalleryCache.framework in Frameworks */,
+				94CBC801261A228A00773D5E /* PhotoGalleryFeature.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +153,8 @@
 		94CBC7E2261A219400773D5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94CBC800261A228A00773D5E /* PhotoGalleryFeature.framework */,
+				94CBC7FB261A228700773D5E /* PhotoGalleryCache.framework */,
 				94CBC7F5261A225D00773D5E /* PhotoGalleryCache.framework */,
 				94CBC7EF261A21DF00773D5E /* PhotoGalleryFeature.framework */,
 				94CBC7E3261A219400773D5E /* PhotoGalleryCache.framework */,
@@ -159,6 +184,7 @@
 				94CBC74D261A137C00773D5E /* Sources */,
 				94CBC74E261A137C00773D5E /* Frameworks */,
 				94CBC74F261A137C00773D5E /* Resources */,
+				94CBC7FE261A228800773D5E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
