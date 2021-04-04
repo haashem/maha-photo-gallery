@@ -42,4 +42,8 @@ class GalleryStoreSpy: GalleryStore {
         retreivalCompletions[index](.failure(error))
     }
     
+    func completeRetrievalWithEmptyCache(at index: Int = 0) {
+        retreivalCompletions[index](.success(.none))
+    }
+    
 }

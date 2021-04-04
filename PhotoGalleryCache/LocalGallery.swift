@@ -30,8 +30,9 @@ extension LocalGallery: PhotoLoader {
             switch result {
             case let .failure(error):
                 completion(.failure(error))
-                
-            default: break
+              
+            case .success:
+                completion(.success([]))
             }
         }
     }

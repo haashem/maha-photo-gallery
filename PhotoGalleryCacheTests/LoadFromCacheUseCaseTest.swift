@@ -32,6 +32,13 @@ class LoadFromCacheUseCaseTest: XCTestCase {
         })
     }
     
+    func test_load_deliversNoImageOnEmptyCache() {
+        let (sut, store) = makeSut()
+        expect(sut, toCompleteWith: .success([]), when: {
+            store.completeRetrievalWithEmptyCache()
+        })
+    }
+    
     // MARK: - Helpers
     
     private func makeSut(file: StaticString = #file, line: UInt = #line) -> (sut: LocalGallery, store: GalleryStoreSpy) {
