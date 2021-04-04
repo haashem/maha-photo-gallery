@@ -15,6 +15,6 @@ public protocol GalleryStore {
     typealias RetrievalResult = Result<[LocalPhoto]?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
     
-    func insert(_ feed: LocalPhoto, insertionCompletion: @escaping InsertionCompletion)
+    func insert(_ photo: LocalPhoto, completion: @escaping InsertionCompletion)
     func retrieve(completion: @escaping RetrievalCompletion)
 }

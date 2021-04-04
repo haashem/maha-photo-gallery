@@ -14,6 +14,28 @@ extension GalleryStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
+    func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
+        
+        let insertionError = insert(samplePhoto(), to: sut)
+        XCTAssertNil(insertionError, "Expected to insert photo successfully")
+    }
+    
+    
+    @discardableResult
+    func insert(_ photo: LocalPhoto, to sut: GalleryStore) -> Error? {
+       
+       let exp = expectation(description: "Wait for photo inserion")
+       var insertionError: Error?
+        sut.insert(photo) { result in
+            if case let Result.failure(error) = result { insertionError = error }
+               exp.fulfill()
+        }
+       
+       wait(for: [exp], timeout: 1.0)
+       
+        return insertionError
+    }
+    
     func expect(_ sut: GalleryStore, toRetrieve expectedResult: GalleryStore.RetrievalResult, file: StaticString = #file, line: UInt = #line) {
        let exp = expectation(description: "Wait for cache retrieval")
        

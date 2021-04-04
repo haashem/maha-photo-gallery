@@ -13,8 +13,8 @@ public class CoreDataGalleryStore: GalleryStore {
         
     }
     
-    public func insert(_ feed: LocalPhoto, insertionCompletion: @escaping InsertionCompletion) {
-        
+    public func insert(_ photo: LocalPhoto, completion: @escaping InsertionCompletion) {
+        completion(.success(()))
     }
     
     public func retrieve(completion: @escaping RetrievalCompletion) {
