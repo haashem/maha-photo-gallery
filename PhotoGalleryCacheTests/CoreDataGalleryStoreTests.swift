@@ -8,7 +8,7 @@
 import XCTest
 import PhotoGalleryCache
 
-class PhotoGalleryCacheTests: XCTestCase, GalleryStoreSpecs {
+class CoreDataGalleryStoreTests: XCTestCase, GalleryStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
 
