@@ -11,7 +11,29 @@
 		94CBC83F261A249900773D5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC83E261A249900773D5E /* SceneDelegate.swift */; };
 		94CBC846261A249B00773D5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CBC845261A249B00773D5E /* Assets.xcassets */; };
 		94CBC849261A249B00773D5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CBC847261A249B00773D5E /* LaunchScreen.storyboard */; };
+		94CBC856261A253400773D5E /* PhotoGalleryCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC854261A253400773D5E /* PhotoGalleryCache.framework */; };
+		94CBC857261A253400773D5E /* PhotoGalleryCache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC854261A253400773D5E /* PhotoGalleryCache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94CBC858261A253400773D5E /* PhotoGalleryiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC855261A253400773D5E /* PhotoGalleryiOS.framework */; };
+		94CBC859261A253400773D5E /* PhotoGalleryiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC855261A253400773D5E /* PhotoGalleryiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94CBC85C261A254300773D5E /* PhotoGalleryFeature.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC85B261A254300773D5E /* PhotoGalleryFeature.framework */; };
+		94CBC85D261A254300773D5E /* PhotoGalleryFeature.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC85B261A254300773D5E /* PhotoGalleryFeature.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94CBC85A261A253400773D5E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94CBC859261A253400773D5E /* PhotoGalleryiOS.framework in Embed Frameworks */,
+				94CBC85D261A254300773D5E /* PhotoGalleryFeature.framework in Embed Frameworks */,
+				94CBC857261A253400773D5E /* PhotoGalleryCache.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		94CBC839261A249900773D5E /* MainApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MainApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -20,6 +42,9 @@
 		94CBC845261A249B00773D5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94CBC848261A249B00773D5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94CBC84A261A249B00773D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94CBC854261A253400773D5E /* PhotoGalleryCache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryCache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CBC855261A253400773D5E /* PhotoGalleryiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CBC85B261A254300773D5E /* PhotoGalleryFeature.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PhotoGalleryFeature.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CBC858261A253400773D5E /* PhotoGalleryiOS.framework in Frameworks */,
+				94CBC85C261A254300773D5E /* PhotoGalleryFeature.framework in Frameworks */,
+				94CBC856261A253400773D5E /* PhotoGalleryCache.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +66,7 @@
 			children = (
 				94CBC83B261A249900773D5E /* MainApp */,
 				94CBC83A261A249900773D5E /* Products */,
+				94CBC853261A253400773D5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +90,16 @@
 			path = MainApp;
 			sourceTree = "<group>";
 		};
+		94CBC853261A253400773D5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94CBC85B261A254300773D5E /* PhotoGalleryFeature.framework */,
+				94CBC854261A253400773D5E /* PhotoGalleryCache.framework */,
+				94CBC855261A253400773D5E /* PhotoGalleryiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,6 +110,7 @@
 				94CBC835261A249900773D5E /* Sources */,
 				94CBC836261A249900773D5E /* Frameworks */,
 				94CBC837261A249900773D5E /* Resources */,
+				94CBC85A261A253400773D5E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

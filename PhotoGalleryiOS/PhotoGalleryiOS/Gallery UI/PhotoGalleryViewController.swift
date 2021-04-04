@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol PhotoGalleryViewControllerDelegate {
+    func didRequestLoadPhotos()
+}
+
+
 final public class PhotoGalleryViewController: UICollectionViewController {
+    
     
 }

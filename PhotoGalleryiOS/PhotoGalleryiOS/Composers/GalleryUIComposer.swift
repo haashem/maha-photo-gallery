@@ -13,7 +13,10 @@ public final class GalleryUIComposer {
     
     public static func photoGalleryComposedWith(photoLoader: PhotoLoader, photoSaver: PhotoSaver) -> PhotoGalleryViewController {
         
-        return PhotoGalleryViewController()
+        let bundle = Bundle(for: PhotoGalleryViewController.self)
+        let storyboard = UIStoryboard(name: "PhotoGallery", bundle: bundle)
+        let feedController = storyboard.instantiateInitialViewController() as! PhotoGalleryViewController
+        return feedController
     }
     
 }
