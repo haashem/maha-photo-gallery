@@ -33,7 +33,7 @@ class GalleryStoreSpy: GalleryStore {
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
-        
+        receivedMessages.append(ReceivedMessage.retrieve)
     }
     
 }

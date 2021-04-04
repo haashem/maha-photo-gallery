@@ -23,6 +23,17 @@ extension LocalGallery: PhotoSaver {
     }
 }
 
+extension LocalGallery: PhotoLoader {
+    public typealias LoadResult = PhotoLoader.Result
+    public func load(completion: @escaping (LoadResult) -> Void) {
+        store.retrieve { result in
+            
+        }
+    }
+    
+    
+}
+
 extension Photo {
     func toLocal() -> LocalPhoto {
         return LocalPhoto(name: name, date: date, image: image)
