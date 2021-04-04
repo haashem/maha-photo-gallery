@@ -16,12 +16,15 @@ class CachePhotoUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [])
     }
     
-    func test_load_requestsCachRetreival() {
-        let (sut, store) = makeSut()
-        sut.load{_ in}
+    func test_save_requestsNewPhotoInsertion() {
         
-        XCTAssertEqual(store.receivedMessages, [.retrieve])
+        let (sut, store) = makeSut()
+        let photo = samplePhoto()
+        sut.save(photo.model) {_ in }
+        
+        XCTAssertEqual(store.receivedMessages, [.insert(photo.local)])
     }
+    
     
     // MARK: - Helpers
     

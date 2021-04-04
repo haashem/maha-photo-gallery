@@ -17,21 +17,21 @@ extension GalleryStoreSpecs where Self: XCTestCase {
     func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
         
         let photo = samplePhoto()
-        insert(photo, to: sut)
+        insert(photo.local, to: sut)
 
-        expect(sut, toRetrieve: .success([photo]), file: file, line: line)
+        expect(sut, toRetrieve: .success([photo.local]), file: file, line: line)
     }
     
     
     func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
         
-        let insertionError = insert(samplePhoto(), to: sut)
+        let insertionError = insert(samplePhoto().local, to: sut)
         XCTAssertNil(insertionError, "Expected to insert photo successfully")
     }
     
     func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
-        insert(samplePhoto(), to: sut)
-        let insertionError = insert(samplePhoto(), to: sut)
+        insert(samplePhoto().local, to: sut)
+        let insertionError = insert(samplePhoto().local, to: sut)
         XCTAssertNil(insertionError, "Expected to override cache successfully")
     }
 

@@ -7,9 +7,11 @@
 
 import Foundation
 import PhotoGalleryCache
+import PhotoGallery
 
-func samplePhoto() -> LocalPhoto {
-    return LocalPhoto(name: "any", date: Date(), image: Data())
+func samplePhoto() -> (model: Photo, local: LocalPhoto) {
+    let date = Date()
+    return (Photo(name: "any", date: date, image: Data()), LocalPhoto(name: "any", date: date, image: Data()))
 }
 
 

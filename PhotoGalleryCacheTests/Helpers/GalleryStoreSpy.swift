@@ -11,17 +11,18 @@ import PhotoGalleryCache
 class GalleryStoreSpy: GalleryStore {
     
     enum ReceivedMessage: Equatable {
-        case insert(LocalPhoto, Date)
+        case insert(LocalPhoto)
         case retrieve
     }
     
     private(set) var receivedMessages = [ReceivedMessage]()
     
     func insert(_ photo: LocalPhoto, completion: @escaping InsertionCompletion) {
-        
+        receivedMessages.append(ReceivedMessage.insert(photo))
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
-        receivedMessages.append(.retrieve)
+        
     }
+    
 }

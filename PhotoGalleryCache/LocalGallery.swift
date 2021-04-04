@@ -14,13 +14,18 @@ public final class LocalGallery {
     }
 }
 
-extension LocalGallery: PhotoLoader {
-    
-    public typealias LoadResult = PhotoLoader.Result
-    
-    public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { result in
-           
-        }
+extension LocalGallery {
+    public typealias SaveResult = Result<Void, Error>
+    public func save(_ photo: Photo, completion: @escaping (SaveResult) -> Void) {
+        store.insert(photo.toLocal(), completion: { error in
+            
+        })
     }
 }
+
+extension Photo {
+    func toLocal() -> LocalPhoto {
+        return LocalPhoto(name: name, date: date, image: image)
+    }
+}
+
