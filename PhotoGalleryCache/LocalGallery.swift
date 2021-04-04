@@ -13,3 +13,14 @@ public final class LocalGallery {
         self.store = store
     }
 }
+
+extension LocalGallery: PhotoLoader {
+    
+    public typealias LoadResult = PhotoLoader.Result
+    
+    public func load(completion: @escaping (LoadResult) -> Void) {
+        store.retrieve { result in
+           
+        }
+    }
+}

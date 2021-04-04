@@ -22,6 +22,6 @@ class GalleryStoreSpy: GalleryStore {
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
-        
+        receivedMessages.append(.retrieve)
     }
 }
