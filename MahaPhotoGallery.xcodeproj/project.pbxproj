@@ -12,6 +12,8 @@
 		9420DED82619C2B300B7C8FD /* PhotoSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420DED72619C2B300B7C8FD /* PhotoSaver.swift */; };
 		9420DEE82619C33C00B7C8FD /* PhotoGalleryCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9420DEDF2619C33C00B7C8FD /* PhotoGalleryCache.framework */; };
 		9420DEED2619C33C00B7C8FD /* PhotoGalleryCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420DEEC2619C33C00B7C8FD /* PhotoGalleryCacheTests.swift */; };
+		9420DF0B2619C77200B7C8FD /* GalleryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420DF092619C77200B7C8FD /* GalleryStore.swift */; };
+		9420DF0C2619C77200B7C8FD /* LocalPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420DF0A2619C77200B7C8FD /* LocalPhoto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 		9420DEE72619C33C00B7C8FD /* PhotoGalleryCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoGalleryCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9420DEEC2619C33C00B7C8FD /* PhotoGalleryCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCacheTests.swift; sourceTree = "<group>"; };
 		9420DEEE2619C33C00B7C8FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9420DF092619C77200B7C8FD /* GalleryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryStore.swift; sourceTree = "<group>"; };
+		9420DF0A2619C77200B7C8FD /* LocalPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		9420DEE02619C33C00B7C8FD /* PhotoGalleryCache */ = {
 			isa = PBXGroup;
 			children = (
+				9420DF092619C77200B7C8FD /* GalleryStore.swift */,
+				9420DF0A2619C77200B7C8FD /* LocalPhoto.swift */,
 				9420DEE22619C33C00B7C8FD /* Info.plist */,
 			);
 			path = PhotoGalleryCache;
@@ -274,6 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9420DF0C2619C77200B7C8FD /* LocalPhoto.swift in Sources */,
+				9420DF0B2619C77200B7C8FD /* GalleryStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +530,7 @@
 		9420DEF42619C33C00B7C8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7M46G3S539;
@@ -540,6 +549,7 @@
 		9420DEF52619C33C00B7C8FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7M46G3S539;
