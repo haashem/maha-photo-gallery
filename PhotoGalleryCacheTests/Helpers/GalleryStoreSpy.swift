@@ -28,6 +28,10 @@ class GalleryStoreSpy: GalleryStore {
         insertionsCompletions[index](.failure(error))
     }
     
+    func completeInsertionSuccessfully(at index: Int = 0) {
+        insertionsCompletions[index](.success(()))
+    }
+    
     func retrieve(completion: @escaping RetrievalCompletion) {
         
     }

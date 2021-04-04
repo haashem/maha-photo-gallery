@@ -32,6 +32,14 @@ class CachePhotoUseCaseTests: XCTestCase {
         })
     }
     
+    func test_save_successOnSuccessfulCacheInsertion() {
+        let (sut, store) = makeSut()
+        
+        expect(sut, toCompleteWithError: nil, when: {
+            store.completeInsertionSuccessfully()
+        })
+    }
+    
     private func expect(_ sut: LocalGallery, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "wait for save completion")
         
