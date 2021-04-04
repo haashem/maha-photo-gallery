@@ -60,7 +60,8 @@ extension GalleryStoreSpecs where Self: XCTestCase {
                break
            case let (.success(.some(expectedPhotos)), .success(.some(retrievedPhotos))):
             XCTAssertEqual(expectedPhotos, retrievedPhotos, file: file, line: line)
-          
+           case (.success(.some([])), .success(.none)):
+            break
            default:
                XCTFail("Expected to retrieve \(expectedResult), got \(retrievedResult) instead", file: file, line: line)
            }
