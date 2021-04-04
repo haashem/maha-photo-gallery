@@ -40,6 +40,17 @@ class CachePhotoUseCaseTests: XCTestCase {
         })
     }
     
+    func test_save_doesNotDeliverInsertionErrorAfterSUTInstanceHasBeenDeallocated() {
+        let store = GalleryStoreSpy()
+        var sut: LocalGallery? = LocalGallery(store: store)
+        var receivedResults = [LocalGallery.SaveResult]()
+        sut?.save(samplePhoto().model) { receivedResults.append($0)}
+        
+        sut = nil
+        store.completeInsertion(with: anyNSError())
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     private func expect(_ sut: LocalGallery, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "wait for save completion")
         

@@ -17,7 +17,8 @@ public final class LocalGallery {
 extension LocalGallery: PhotoSaver {
     public typealias SaveResult = Result<Void, Error>
     public func save(_ photo: Photo, completion: @escaping (SaveResult) -> Void) {
-        store.insert(photo.toLocal(), completion: { error in
+        store.insert(photo.toLocal(), completion: { [weak self] error in
+            guard let _ = self else { return }
             completion(error)
         })
     }
