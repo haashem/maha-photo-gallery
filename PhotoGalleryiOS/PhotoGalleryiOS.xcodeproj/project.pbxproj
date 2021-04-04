@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		94CBC75B261A137C00773D5E /* PhotoGalleryiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CBC751261A137C00773D5E /* PhotoGalleryiOS.framework */; };
-		94CBC760261A137C00773D5E /* PhotoGalleryiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC75F261A137C00773D5E /* PhotoGalleryiOSTests.swift */; };
+		94CBC760261A137C00773D5E /* PhotoGalleryUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC75F261A137C00773D5E /* PhotoGalleryUIIntegrationTests.swift */; };
+		94CBC77E261A15DD00773D5E /* PhotoGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC77D261A15DD00773D5E /* PhotoGalleryViewController.swift */; };
+		94CBC782261A166B00773D5E /* PhotoGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CBC781261A166B00773D5E /* PhotoGallery.storyboard */; };
+		94CBC7D3261A1FB100773D5E /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC7D2261A1FB100773D5E /* GridLayout.swift */; };
+		94CBC7D7261A1FC800773D5E /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC7D6261A1FC800773D5E /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,8 +29,12 @@
 		94CBC751261A137C00773D5E /* PhotoGalleryiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoGalleryiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CBC755261A137C00773D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94CBC75A261A137C00773D5E /* PhotoGalleryiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoGalleryiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94CBC75F261A137C00773D5E /* PhotoGalleryiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryiOSTests.swift; sourceTree = "<group>"; };
+		94CBC75F261A137C00773D5E /* PhotoGalleryUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryUIIntegrationTests.swift; sourceTree = "<group>"; };
 		94CBC761261A137C00773D5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94CBC77D261A15DD00773D5E /* PhotoGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewController.swift; sourceTree = "<group>"; };
+		94CBC781261A166B00773D5E /* PhotoGallery.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoGallery.storyboard; sourceTree = "<group>"; };
+		94CBC7D2261A1FB100773D5E /* GridLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		94CBC7D6261A1FC800773D5E /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				94CBC755261A137C00773D5E /* Info.plist */,
+				94CBC7DA261A210500773D5E /* Gallery UI */,
 			);
 			path = PhotoGalleryiOS;
 			sourceTree = "<group>";
@@ -77,10 +86,29 @@
 		94CBC75E261A137C00773D5E /* PhotoGalleryiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				94CBC75F261A137C00773D5E /* PhotoGalleryiOSTests.swift */,
+				94CBC75F261A137C00773D5E /* PhotoGalleryUIIntegrationTests.swift */,
 				94CBC761261A137C00773D5E /* Info.plist */,
 			);
 			path = PhotoGalleryiOSTests;
+			sourceTree = "<group>";
+		};
+		94CBC7D1261A1FA200773D5E /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				94CBC7D2261A1FB100773D5E /* GridLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		94CBC7DA261A210500773D5E /* Gallery UI */ = {
+			isa = PBXGroup;
+			children = (
+				94CBC77D261A15DD00773D5E /* PhotoGalleryViewController.swift */,
+				94CBC7D1261A1FA200773D5E /* Layout */,
+				94CBC781261A166B00773D5E /* PhotoGallery.storyboard */,
+				94CBC7D6261A1FC800773D5E /* PhotoCell.swift */,
+			);
+			path = "Gallery UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +171,7 @@
 				TargetAttributes = {
 					94CBC750261A137C00773D5E = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					94CBC759261A137C00773D5E = {
 						CreatedOnToolsVersion = 12.4;
@@ -173,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CBC782261A166B00773D5E /* PhotoGallery.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CBC77E261A15DD00773D5E /* PhotoGalleryViewController.swift in Sources */,
+				94CBC7D7261A1FC800773D5E /* PhotoCell.swift in Sources */,
+				94CBC7D3261A1FB100773D5E /* GridLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94CBC760261A137C00773D5E /* PhotoGalleryiOSTests.swift in Sources */,
+				94CBC760261A137C00773D5E /* PhotoGalleryUIIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +370,7 @@
 		94CBC766261A137C00773D5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7M46G3S539;
@@ -354,6 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hashem.PhotoGalleryiOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -362,6 +397,7 @@
 		94CBC767261A137C00773D5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7M46G3S539;
@@ -387,6 +423,7 @@
 		94CBC769261A137C00773D5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7M46G3S539;
 				INFOPLIST_FILE = PhotoGalleryiOSTests/Info.plist;
@@ -405,6 +442,7 @@
 		94CBC76A261A137C00773D5E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7M46G3S539;
 				INFOPLIST_FILE = PhotoGalleryiOSTests/Info.plist;
