@@ -5,7 +5,7 @@
 //  Created by Hashem Aboonajmi on 4/4/21.
 //
 
-import PhotoGallery
+import PhotoGalleryFeature
 
 public final class LocalGallery {
     private let store: GalleryStore

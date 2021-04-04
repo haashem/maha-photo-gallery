@@ -7,7 +7,7 @@
 
 import Foundation
 import PhotoGalleryCache
-import PhotoGallery
+import PhotoGalleryFeature
 
 func samplePhoto() -> (model: Photo, local: LocalPhoto) {
     let date = Date()
