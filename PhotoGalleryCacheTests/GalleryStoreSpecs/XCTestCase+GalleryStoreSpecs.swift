@@ -20,7 +20,12 @@ extension GalleryStoreSpecs where Self: XCTestCase {
         XCTAssertNil(insertionError, "Expected to insert photo successfully")
     }
     
-    
+    func assertThatInsertDeliversNoErrorOnNonEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
+        insert(samplePhoto(), to: sut)
+        let insertionError = insert(samplePhoto(), to: sut)
+        XCTAssertNil(insertionError, "Expected to override cache successfully")
+    }
+
     @discardableResult
     func insert(_ photo: LocalPhoto, to sut: GalleryStore) -> Error? {
        

@@ -26,7 +26,9 @@ class PhotoGalleryCacheTests: XCTestCase, GalleryStoreSpecs {
     }
     
     func test_insert_deliversNoErrorOnNonEmptyCache() {
-        
+        let sut = makeSUT()
+
+        assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
     }
     
     private func makeSUT(file: StaticString = #file, line: Int = #line) -> GalleryStore {
