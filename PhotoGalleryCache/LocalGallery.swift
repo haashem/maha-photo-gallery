@@ -26,7 +26,8 @@ extension LocalGallery: PhotoSaver {
 extension LocalGallery: PhotoLoader {
     public typealias LoadResult = PhotoLoader.Result
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { result in
+        store.retrieve {[weak self] result in
+            guard let _ = self else { return }
             switch result {
             case let .failure(error):
                 completion(.failure(error))

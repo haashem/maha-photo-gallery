@@ -48,12 +48,26 @@ class LoadFromCacheUseCaseTest: XCTestCase {
             store.completeRetrieval(with: [photo.local])
         })
     }
+    
+    func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+        let store = GalleryStoreSpy()
+        var sut: LocalGallery? = LocalGallery(store: store)
+        
+        var receivedResults = [LocalGallery.LoadResult]()
+        sut?.load { receivedResults.append($0) }
+        sut = nil
+        
+        store.completeRetrievalWithEmptyCache()
+        XCTAssertTrue(receivedResults.isEmpty)
+    }
+    
     // MARK: - Helpers
     
     private func makeSut(file: StaticString = #file, line: UInt = #line) -> (sut: LocalGallery, store: GalleryStoreSpy) {
         let store = GalleryStoreSpy()
         let sut = LocalGallery(store: store)
         
+        trackForMemoryLeaks(sut, file: file, line: line)
         trackForMemoryLeaks(store, file: file, line: line)
         return (sut, store)
     }
