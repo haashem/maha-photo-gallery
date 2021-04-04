@@ -6,9 +6,16 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9420DED42619C28A00B7C8FD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420DED22619C28A00B7C8FD /* Photo.swift */; };
+		9420DED52619C28A00B7C8FD /* PhotoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9420DED32619C28A00B7C8FD /* PhotoLoader.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		9420DEC02619BC6C00B7C8FD /* PhotoGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9420DEC32619BC6C00B7C8FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9420DED22619C28A00B7C8FD /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		9420DED32619C28A00B7C8FD /* PhotoLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,8 @@
 		9420DEC82619BC9A00B7C8FD /* PhotoGalleryFeature */ = {
 			isa = PBXGroup;
 			children = (
+				9420DED22619C28A00B7C8FD /* Photo.swift */,
+				9420DED32619C28A00B7C8FD /* PhotoLoader.swift */,
 			);
 			path = PhotoGalleryFeature;
 			sourceTree = "<group>";
@@ -132,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9420DED42619C28A00B7C8FD /* Photo.swift in Sources */,
+				9420DED52619C28A00B7C8FD /* PhotoLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
