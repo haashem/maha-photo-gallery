@@ -18,7 +18,7 @@ extension LocalGallery {
     public typealias SaveResult = Result<Void, Error>
     public func save(_ photo: Photo, completion: @escaping (SaveResult) -> Void) {
         store.insert(photo.toLocal(), completion: { error in
-            
+            completion(error)
         })
     }
 }

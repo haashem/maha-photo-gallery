@@ -14,4 +14,9 @@ func samplePhoto() -> (model: Photo, local: LocalPhoto) {
     return (Photo(name: "any", date: date, image: Data()), LocalPhoto(name: "any", date: date, image: Data()))
 }
 
+func anyNSError() -> NSError {
+    return NSError(domain:"any error", code: 0, userInfo: nil)
+}
+
+
 

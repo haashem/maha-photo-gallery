@@ -25,6 +25,27 @@ class CachePhotoUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.insert(photo.local)])
     }
     
+    func test_save_failsOnInsertionError() {
+        let (sut, store) = makeSut()
+        let insertionError = anyNSError()
+        expect(sut, toCompleteWithError: insertionError, when: { store.completeInsertion(with: insertionError)
+        })
+    }
+    
+    private func expect(_ sut: LocalGallery, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "wait for save completion")
+        
+        var receivedError: Error?
+        sut.save(samplePhoto().model) { result in
+            if case let Result.failure(error) = result { receivedError = error }
+            exp.fulfill()
+        }
+        
+        action()
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: UInt(line))
+    }
     
     // MARK: - Helpers
     
