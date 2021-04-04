@@ -39,6 +39,15 @@ class LoadFromCacheUseCaseTest: XCTestCase {
         })
     }
     
+    func test_load_deliversCachedImages() {
+        
+        let (sut, store) = makeSut()
+        let photo = samplePhoto()
+        
+        expect(sut, toCompleteWith: .success([photo.model]), when: {
+            store.completeRetrieval(with: [photo.local])
+        })
+    }
     // MARK: - Helpers
     
     private func makeSut(file: StaticString = #file, line: UInt = #line) -> (sut: LocalGallery, store: GalleryStoreSpy) {

@@ -46,4 +46,8 @@ class GalleryStoreSpy: GalleryStore {
         retreivalCompletions[index](.success(.none))
     }
     
+    func completeRetrieval(with photos: [LocalPhoto], at index: Int = 0) {
+        retreivalCompletions[index](.success(photos))
+    }
+    
 }
