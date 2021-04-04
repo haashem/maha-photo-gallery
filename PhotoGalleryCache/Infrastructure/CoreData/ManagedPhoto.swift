@@ -14,4 +14,22 @@ class ManagedPhoto: NSManagedObject {
   @NSManaged  var image: Data
 }
 
-
+extension ManagedPhoto {
+    static func fromLocal(_ localPhoto: LocalPhoto, in context: NSManagedObjectContext) -> ManagedPhoto {
+       let managed = ManagedPhoto(context: context)
+        managed.name = localPhoto.name
+        managed.date = localPhoto.date
+        managed.image = localPhoto.image
+        return managed
+   }
+    
+    static func find(in context: NSManagedObjectContext) throws -> [ManagedPhoto] {
+       let request = NSFetchRequest<ManagedPhoto>(entityName: entity().name!)
+        
+       return try context.fetch(request)
+   }
+    
+    var local: LocalPhoto {
+       return LocalPhoto(name: name, date: date, image: image)
+   }
+}

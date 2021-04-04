@@ -23,6 +23,7 @@
 		94CBC6682619DF8700773D5E /* PhotoGalleryCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC6672619DF8700773D5E /* PhotoGalleryCacheTestHelpers.swift */; };
 		94CBC68F2619E12000773D5E /* PhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9420DEC02619BC6C00B7C8FD /* PhotoGallery.framework */; };
 		94CBC6902619E12000773D5E /* PhotoGallery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9420DEC02619BC6C00B7C8FD /* PhotoGallery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94CBC6972619EB6300773D5E /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBC6962619EB6300773D5E /* CoreDataHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		94CBC65C2619DBB100773D5E /* CoreDataGalleryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGalleryStore.swift; sourceTree = "<group>"; };
 		94CBC6612619DCE400773D5E /* XCTestCase+GalleryStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+GalleryStoreSpecs.swift"; sourceTree = "<group>"; };
 		94CBC6672619DF8700773D5E /* PhotoGalleryCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryCacheTestHelpers.swift; sourceTree = "<group>"; };
+		94CBC6962619EB6300773D5E /* CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				9420DF1A2619C97200B7C8FD /* GalleryStore.xcdatamodeld */,
 				9420DF372619CA8B00B7C8FD /* ManagedPhoto.swift */,
 				94CBC65C2619DBB100773D5E /* CoreDataGalleryStore.swift */,
+				94CBC6962619EB6300773D5E /* CoreDataHelpers.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94CBC6972619EB6300773D5E /* CoreDataHelpers.swift in Sources */,
 				94CBC65D2619DBB100773D5E /* CoreDataGalleryStore.swift in Sources */,
 				9420DF382619CA8B00B7C8FD /* ManagedPhoto.swift in Sources */,
 				9420DF0C2619C77200B7C8FD /* LocalPhoto.swift in Sources */,

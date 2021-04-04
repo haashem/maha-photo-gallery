@@ -14,6 +14,15 @@ extension GalleryStoreSpecs where Self: XCTestCase {
         expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
     
+    func assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
+        
+        let photo = samplePhoto()
+        insert(photo, to: sut)
+
+        expect(sut, toRetrieve: .success([photo]), file: file, line: line)
+    }
+    
+    
     func assertThatInsertDeliversNoErrorOnEmptyCache(on sut: GalleryStore, file: StaticString = #file, line: UInt = #line) {
         
         let insertionError = insert(samplePhoto(), to: sut)

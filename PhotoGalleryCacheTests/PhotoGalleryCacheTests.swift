@@ -16,7 +16,9 @@ class PhotoGalleryCacheTests: XCTestCase, GalleryStoreSpecs {
     }
     
     func test_retrieveـdeliversFoundValuesOnNonEmptyCache() {
-        
+        let sut = makeSUT()
+
+        assertThatRetrieveDeliversFoundValuesOnNonEmptyCache(on: sut)
     }
     
     func test_insert_deliversNoErrorOnEmptyCache() {
@@ -33,9 +35,10 @@ class PhotoGalleryCacheTests: XCTestCase, GalleryStoreSpecs {
     
     private func makeSUT(file: StaticString = #file, line: Int = #line) -> GalleryStore {
         
-         
-         let sut = CoreDataGalleryStore()
-         
+        let storeBundle = Bundle(for: CoreDataGalleryStore.self)
+        let storeURL = URL(fileURLWithPath: "/dev/null")
+        let sut = try! CoreDataGalleryStore(storeURL: storeURL, bundle: storeBundle)
+        
          return sut
      }
     
