@@ -58,7 +58,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Zxi-hM-jWB">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="x9q-aT-62f"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="x9q-aT-62f">
+                            <connections>
+                                <action selector="selectPhotoWithSender:" destination="gCJ-Sb-d6z" id="KmU-fM-mv7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODM-CR-0CW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
