@@ -10,6 +10,7 @@ import UIKit
 protocol PhotoGalleryViewControllerDelegate {
     func didRequestLoadPhotos()
     func didRequestSaveImage(image: UIImage, with name: String)
+    func didSelectImage(at index: Int)
 }
 
 
@@ -46,6 +47,9 @@ final public class PhotoGalleryViewController: UICollectionViewController {
         return cell
     }
     
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.didSelectImage(at: indexPath.row)
+    }
     
     @IBAction func selectPhoto(sender: UIBarButtonItem) {
         

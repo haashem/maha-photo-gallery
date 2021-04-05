@@ -31,7 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let localPhotoGallery = LocalGallery(store: try! CoreDataGalleryStore(storeURL: storeURL(), bundle: storeBundle))
         
-        let photoGalleryVC = GalleryUIComposer.photoGalleryComposedWith(photoLoader: localPhotoGallery, photoSaver: localPhotoGallery)
+        let photoGalleryVC = GalleryUIComposer.photoGalleryComposedWith(photoLoader: localPhotoGallery, photoSaver: localPhotoGallery) { photo in
+            let photoDetailsVC = GalleryUIComposer.photoDetailsComposedWith(photo)
+            self.navigationController?.pushViewController(photoDetailsVC, animated: true)
+        }
         return photoGalleryVC
     }
     

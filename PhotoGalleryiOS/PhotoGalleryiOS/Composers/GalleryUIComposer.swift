@@ -11,7 +11,7 @@ import PhotoGalleryFeature
 public final class GalleryUIComposer {
     private init() {}
     
-    public static func photoGalleryComposedWith(photoLoader: PhotoLoader, photoSaver: PhotoSaver) -> PhotoGalleryViewController {
+    public static func photoGalleryComposedWith(photoLoader: PhotoLoader, photoSaver: PhotoSaver, photoSelection: @escaping (Photo) -> Void = { _ in }) -> PhotoGalleryViewController {
         
         let bundle = Bundle(for: PhotoGalleryViewController.self)
         let storyboard = UIStoryboard(name: "PhotoGallery", bundle: bundle)
@@ -20,12 +20,23 @@ public final class GalleryUIComposer {
         
         let presenter = PhotoGalleryPresenter(galleryView: GalleryViewAdapater(controller: photoGalleryController))
         
-        let presentationAdapter = PhotoGalleryPresentationAdapter(photoLoader: MainQueueDispatchDecorator(decoratee: photoLoader), photoSaver: MainQueueDispatchDecorator(decoratee: photoSaver), presenter: presenter)
+        let presentationAdapter = PhotoGalleryPresentationAdapter(photoLoader: MainQueueDispatchDecorator(decoratee: photoLoader), photoSaver: MainQueueDispatchDecorator(decoratee: photoSaver), presenter: presenter, onPhotoSelection: photoSelection)
+        
         photoGalleryController.delegate = presentationAdapter
         
         return photoGalleryController
     }
     
+    public static func photoDetailsComposedWith(_ photo: Photo) -> PhotoDetailsViewController {
+        let bundle = Bundle(for: PhotoGalleryViewController.self)
+        let storyboard = UIStoryboard(name: "PhotoGallery", bundle: bundle)
+        
+        let photoDetailsVC = storyboard.instantiateViewController(identifier: String(describing: PhotoDetailsViewController.self)) as! PhotoDetailsViewController
+        
+        let viewModel = photo.viewModel()
+        photoDetailsVC.viewModel = viewModel
+        return photoDetailsVC
+    }
 }
 
 private final class PhotoGalleryPresentationAdapter: PhotoGalleryViewControllerDelegate {
@@ -33,17 +44,21 @@ private final class PhotoGalleryPresentationAdapter: PhotoGalleryViewControllerD
     private let photoLoader: PhotoLoader
     private let photoSaver: PhotoSaver
     var presenter: PhotoGalleryPresenter
+    var onPhotoSelection: (Photo) -> Void
+    private var photos: [Photo] = []
     
-    init(photoLoader: PhotoLoader, photoSaver: PhotoSaver, presenter: PhotoGalleryPresenter) {
+    init(photoLoader: PhotoLoader, photoSaver: PhotoSaver, presenter: PhotoGalleryPresenter, onPhotoSelection: @escaping (Photo) -> Void) {
         self.photoLoader = photoLoader
         self.photoSaver = photoSaver
         self.presenter = presenter
+        self.onPhotoSelection = onPhotoSelection
     }
     
     func didRequestLoadPhotos() {
         photoLoader.load { [weak self] result in
             switch result {
             case let .success(photos):
+                self?.photos = photos
                 self?.presenter.didFinishLoadingPhotos(with: photos)
             default: break
             }
@@ -61,6 +76,11 @@ private final class PhotoGalleryPresentationAdapter: PhotoGalleryViewControllerD
         }
     }
     
+    
+    func didSelectImage(at index: Int) {
+        onPhotoSelection(photos[index])
+    }
+    
 }
 
 private final class GalleryViewAdapater: GalleryView {
@@ -74,14 +94,11 @@ private final class GalleryViewAdapater: GalleryView {
     func display(_ viewModel: GalleryViewModel) {
         
         controller?.appened(viewModel.photos.map { model in
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM d, yyyy"
-            let viewModel = PhotoViewModel(name: model.name, date: dateFormatter.string(from: model.date), image: UIImage.init(data: model.image)!)
-            return viewModel
+            
+            return model.viewModel()
         })
     }
 }
-
 
 private final class MainQueueDispatchDecorator<T> {
     private let decoratee: T
@@ -121,5 +138,14 @@ extension MainQueueDispatchDecorator: PhotoSaver where T == PhotoSaver {
                 completion(result)
             }
         }
+    }
+}
+
+private extension Photo {
+    func viewModel() -> PhotoViewModel<UIImage> {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        return PhotoViewModel(name: name, date: dateFormatter.string(from: date), image: UIImage.init(data: image)!)
+        
     }
 }
